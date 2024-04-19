@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int start=0;                     //two pointers
+        int end = height.size() -1;
+        int area;
+        int maxarea = 0;
+
+        while(start<end) {
+            area = min(height[start],height[end])*(end-start); // considering the vertical lines simply as a value
+            if(area>maxarea) {
+                maxarea = area;
+            }
+            if(height[start]<height[end]) {
+                start++;                                    //shifting pointers
+            }else {
+                end --;
+            }
+        }
+
+    return maxarea;
+
+    }
+};
